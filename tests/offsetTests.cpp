@@ -1,5 +1,6 @@
 #include "paths.h"
 #include <filesystem>
+#include <format>
 #include <fstream>
 #include <gtest/gtest.h>
 #include <iostream>
@@ -37,7 +38,10 @@ void test(std::filesystem::path const &inputPath) {
     std::ofstream out(outPath / inputPath.stem() / ".gnuplot");
     offPoly.print(out);
 
-    std::cout << "Pointwise sum of errors is: " << compare(expectedPoly, offPoly) << std::endl;
+    auto error = compare(expectedPoly, offPoly);
+
+    std::cout << std::format("Pointwise sum of errors is: {}", error) << std::endl;
+    ASSERT_LT(error, 1e-2);
 }
 
 TEST(offsetTests, circle_m01) { test(SOURCE_PATH / "input/circle_m01.json"); }

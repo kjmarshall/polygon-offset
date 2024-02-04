@@ -10,30 +10,31 @@ myColor(c) = (idx=NaN, sum [i=1:words(ColorNames)] \
 # add transparency (alpha) a=0 to 255 or 0x00 to 0xff
 myTColor(c,a) = sprintf("0x%x%s",a, myColor(c)[3:])
 
-set terminal pdf size 6in,6in
-set output "circle_m01.pdf"
+#set terminal pdf size 6in,6in
+set terminal pngcairo size 6in,6in
+set output "circle_m01.png"
 
 set xrange [-1.5:1.5]
 set yrange [-1.5:1.5]
 
 plot "circle_m01-input_polygon.gnuplot" u 1:2 w l lc rgb myTColor("red", 0x0) t "circle-input", \
-    "circle_m01-output_polygon.gnuplot" u 1:2 w l lc rgb myTColor("green", 0x0) t "circle-output", \
+    "circle_m01-output_polygon.gnuplot" u 1:2 w l lc rgb myTColor("green", 0x0) t "baseline", \
     "circle_m01.gnuplot" u 1:2 w l lw 6 lc rgb myTColor("blue", 0xcc) t "offset"
 
-set output "circle_p01.pdf"
+set output "circle_p01.png"
 
 set xrange [-2:2]
 set yrange [-2:2]
 
 plot "circle_p01-input_polygon.gnuplot" u 1:2 w l lc rgb myTColor("red", 0x0) t "circle-input", \
-    "circle_p01-output_polygon.gnuplot" u 1:2 w l lc rgb myTColor("green", 0x0) t "circle-output", \
+    "circle_p01-output_polygon.gnuplot" u 1:2 w l lc rgb myTColor("green", 0x0) t "baseline", \
     "circle_p01.gnuplot" u 1:2 w l lw 6 lc rgb myTColor("blue", 0xcc) t "offset"
 
-set output "flower_p05.pdf"
+set output "flower_p05.png"
 
 set xrange [-2:2]
 set yrange [-2:2]
 
 plot "flower_p05-input_polygon.gnuplot" u 1:2 w l lc rgb myTColor("red", 0x0) t "flower-input", \
-    "flower_p05-output_polygon.gnuplot" u 1:2 w l lc rgb myTColor("green", 0x0) t "flower-output", \
+    "flower_p05-output_polygon.gnuplot" u 1:2 w l lc rgb myTColor("green", 0x0) t "baseline", \
     "flower_p05.gnuplot" u 1:2 w l lw 6 lc rgb myTColor("blue", 0xcc) t "offset"
