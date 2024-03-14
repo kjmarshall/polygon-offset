@@ -1,6 +1,6 @@
 # Summary
 Caveat Emptor!
-A simple library that implements basic polygon offsetting (shrink and expand).  The general idea is to calculate normal vectors to the polygon line segements and offset the segements in the `+/-` direction of the normal vector.
+A simple library that implements basic polygon offsetting (shrink and expand).  The general idea is to calculate normal vectors to the polygon line segments and offset the segments in the `+/-` direction of the normal vector.
 
 ## Examples
 Offset examples:
